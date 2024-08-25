@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Virtual Underwater Scene</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="coins.js"></script>
+  <script src="game.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <a-scene physics="debug: true">
+    <!-- Deep sea background -->
+    <a-sky color="#004d99"></a-sky>
+
+    <!-- Assets for models -->
+    <a-assets>
+      <!-- Ocean terrain model -->
+      <a-asset-item id="oceanModel" src="./models/underwater_lowpoly_scene/scene.gltf"></a-asset-item>
+      <!-- Scuba diver model -->
+      <a-asset-item id="diverModel" src="./models/scubaman/scene.gltf"></a-asset-item>
+     
+      <!-- Coin model -->
+      <a-asset-item id="coinModel" src="./models/stylized_coin/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- Island entity -->
+    <a-entity id="terrain" position="0 -3 -10">
+      <a-entity scale="1 1 1" gltf-model="#oceanModel"></a-entity>
+    </a-entity>
+
+   
+
+    <!-- Scuba diver entity -->
+    <a-entity id="scubaDiver" position="0 -3 0" rotation="0 0 0" diver-movement dynamic-body>
+      <a-entity scale="0.01 0.01 0.01" gltf-model="#diverModel"></a-entity>
+    </a-entity>
+
+    <!-- Camera entity positioned for third-person view -->
+    <a-entity camera position="0 -0.5 2" rotation="0 0 0" look-controls>
+    </a-entity>
+
+    <!-- Adding the coins component -->
+    <a-entity coins></a-entity>
+    <a-entity game-play></a-entity>
+  </a-scene>
+</body>
+</html>

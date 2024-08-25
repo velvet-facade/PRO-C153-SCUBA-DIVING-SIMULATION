@@ -1,0 +1,5 @@
+index.html: 
+Removed unnecessary rotation animation from the diver entity (<a-entity id="scubaDiver">). Simplified the structure to focus on essential entities.
+
+script.js: 
+Introduced diver-controls component to handle diver movement (ArrowUp for ascent, ArrowDown for descent). Removed the terrain-rotation-reader component to prevent terrain rotation. Kept the coins component for spawning coins.
